@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Random</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.6.1/randomColor.min.js" integrity="sha512-vPeZ7JCboHcfpqSx5ZD+/jpEhS4JpXxfz9orSvAPPj0EKUVShU2tgy7XkU+oujBJKnWmu4hU7r9MMQNWPfXsYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<div id="container" class = "container">
+  <label for="color1" style="padding: 20px 0 10px 0;">Màu 1</label>
+  <input type="color" id = "color1" name="color1" value="#b5c385" >
+  <label for="color1" style="padding: 20px 0 10px 0;">Màu 2</label>
+  <input type="color" id = "color2" name="color2" value="#468488" >
+
+  <div id="button"  onclick="random()">
+    RANDOM GRADIENT
+  </div>
+  <div class="display" id="gradient" style="padding-top: 20px">Linear-gradient(to right
+    <span id = "text1"></span>, <span id = "text2"></span>)</div>
+  <div id="output"> </div>
+</div>
+</body>
+
+
+<script>
+
+  const color1 = document.getElementById("color1");
+  const color2 = document.getElementById("color2");
+  const container = document.getElementById("container");
+  const output = document.getElementById("output");
+  const button = document.getElementById("button");
+  var bodys = document.getElementById("gradient");
+  color1.addEventListener("input", generate);
+  color2.addEventListener("input", generate);
+  document.getElementById("text1").innerHTML = color1.value;
+  document.getElementById("text2").innerHTML = color2.value;
+
+  function generate(){
+    const pick1 = color1.value;
+    const pick2 = color2.value;
+    container.style.background =  linear-gradient(to right,${pick1}, ${pick2})
+    document.getElementById("text1").innerHTML = color1.value;
+    document.getElementById("text2").innerHTML = color2.value;
+  }
+
+  function randomHex (){
+    var hexCode1 = "";
+    var hexValues1 = "0123456789abcdef";
+    for ( var i = 0; i < 6; i++ ) {
+      hexCode1 += hexValues1.charAt(Math.floor(Math.random() * hexValues1.length));
+    }
+    return hexCode1;
+  }
+
+
+  function random (){
+    color1.value = randomColor();
+    color2.value = randomColor();
+    document.getElementById("text1").innerHTML = color1.value;
+    document.getElementById("text2").innerHTML = color2.value;
+    generate()
+  }
+
+  generate()
+</script>
+</html>
+</html>
