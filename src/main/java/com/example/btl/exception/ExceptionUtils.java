@@ -16,7 +16,7 @@ public class ExceptionUtils {
   public static final String USER_NAME_NOT_VALID = "USER_NAME_NOT_VALID";
   public static final String PASSWORD_NOT_VALID = "PASSWORD_NOT_VALID";
 
-  public static Map<String, String> messages;
+  public static final Map<String, String> messages;
 
   static {
     messages = new HashMap<>();
